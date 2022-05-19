@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&t2c^*k*g@khetp)*8+eqndjrxo-t9$jlgz0!vd_+@gbpnti64
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 
     'staff',
 ]
@@ -127,8 +128,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'inteb', 'static'),
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL= 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
