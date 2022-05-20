@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 from . import settings
-from .views import index, custom404
+from .views import index, custom404, tasks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('portal', index, name='index'),
+    path('portal/', index, name='index'),
     path('', include('staff.urls', namespace='staff')),
+    path('tasks/', include('tasks.urls', namespace='tasks')),
+
 ]
 
 handler404 = custom404

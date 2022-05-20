@@ -7,11 +7,11 @@ def index(request):
 
     context = {
         "title": title,
-        'user': request.user
+        'user': request.user,
     }
     return render(request, 'inteb/index.html', context=context)
 
 
+
 def custom404(request, exception):
     return render(request, 'inteb/err.html')
-
