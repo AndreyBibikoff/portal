@@ -9,19 +9,19 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
-from .forms import IntebUserLoginForm
+from .forms import IntebUserLoginForm, IntebUserRegisterForm
 
 
 class IntebUserRegisterView(CreateView):
-
+    form_class = IntebUserRegisterForm
     template_name = 'staff/register.html'
-    sucess_url = reverse_lazy('login')
+
+    def get_success_url(self):
+        return reverse_lazy('staff:login')
 
 class IntebUserLoginView(LoginView):
     template_name = 'staff/login.html'
     form_class = IntebUserLoginForm
-
-
 
     def get_success_url(self):
         return reverse_lazy('index')
