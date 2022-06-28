@@ -1,0 +1,24 @@
+{% extends 'inteb/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="mb-3 w-25">
+  <label for="exampleFormControlInput1" class="form-label">Тема</label>
+  <input id="exampleFormControlInput1" class="form-control" type="text" value="{{ ticket.topic }}" disabled readonly>
+</div>
+<div class="mb-3 w-25">
+  <label for="exampleFormControlInput1" class="form-label">Автор</label>
+  <input id="exampleFormControlInput2" class="form-control" type="text" value="{{ ticket.author }}" disabled readonly>
+</div>
+<div class="mb-3 w-50">
+  <label for="exampleFormControlTextarea1" class="form-label">Описание</label>
+  <input id="exampleFormControlTextarea1" class="form-control " type="text" value="{{ ticket.text }}" disabled readonly>
+</div>
+<div class="mb-3 w-50">
+  {{ ticket.create }}
+</div>
+
+{{ ticket.get_status_display  }}
+
+{% endblock %}

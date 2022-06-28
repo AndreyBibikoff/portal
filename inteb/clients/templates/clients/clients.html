@@ -1,0 +1,33 @@
+{% extends 'inteb/base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'clients:add_client' %}" class="btn btn-success" role="button">Добавить компанию</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">email</th>
+
+
+   </tr>
+  </thead>
+  <tbody>
+
+   <tbody>
+              {% for client in all_clients %}
+    <tr>
+        <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.id }}</a></td>
+        <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_name }}</a></td>
+        <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.office_phone }}</a></td>
+        <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.office_email }}</a></td>
+        <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_address }}</a></td>
+
+    </tr>
+          {% endfor %}
+  </tbody>
+
+{% endblock %}

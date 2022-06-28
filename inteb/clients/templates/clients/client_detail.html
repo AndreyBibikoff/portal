@@ -1,0 +1,44 @@
+{% extends 'inteb/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<form action="{% url 'clients:client_detail' client.pk %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+
+<table>{{ update_form.as_table }}</table>
+
+    <a href="{% url 'clients:add_client_staff' %}" class="btn btn-success" role="button">Добавить сотрудника</a>
+
+    <div class="row ">
+        <h1>Изображения</h1>
+
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 ">
+    {% for image in client.client_images.all %}
+        {% if image.img %}
+            {% load thumbnail %}
+                {% thumbnail image.img "300" as im %}
+    <div class="col "><a href="{{ image.img.url }}">
+      <img src="{{ im.url }}" alt="">
+    </a></div>
+                {% endthumbnail %}
+
+        {% endif %}
+    {% endfor %}
+
+    />
+  </div>
+    </div>
+<p>
+{{ img }}
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</p>
+</form>
+
+
+{% endblock %}
+
+

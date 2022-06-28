@@ -21,6 +21,6 @@ from .views import IntebUserLoginView, IntebUserRegisterView
 app_name = 'staff'
 
 urlpatterns = [
-    path('', IntebUserLoginView.as_view(),  name='login'),
+    path('', IntebUserLoginView.as_view(redirect_authenticated_user=True),  name='login'),
     path('register/', IntebUserRegisterView.as_view(), name='register')
 ]

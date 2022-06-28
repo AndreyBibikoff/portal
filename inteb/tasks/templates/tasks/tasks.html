@@ -1,0 +1,38 @@
+{% extends 'inteb/base.html' %}
+
+{% block content %}
+<a class="btn btn-success" href="{% url 'tasks:addticket' %}" role="button">Создать задачу</a>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Тикет</th>
+      <th scope="col">Автор</th>
+      <th scope="col">Исполнитель</th>
+      <th scope="col">Статус</th>
+
+
+   </tr>
+  </thead>
+  <tbody>
+          {% for t in task %}
+    <tr>
+      <th scope="row"><a href="{% url 'tasks:ticketdetail' t.id %}">{{ t.id }}</a></th>
+      <td><a href="{% url 'tasks:ticketdetail' t.id %}">{{ t.topic }}</a></td>
+      <td>{{ t.author.first_name }} {{ t.author.last_name }}</td>
+      <td>
+        {% for e in executor %}
+            {% if e.task_id == t.id %}
+            {{ e.executor.first_name }} {{ e.executor.last_name }}
+            {% endif %}
+        {% endfor %}
+      </td>
+        <td>{{ t.status }}</td>
+    </tr>
+          {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

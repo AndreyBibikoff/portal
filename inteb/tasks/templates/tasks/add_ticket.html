@@ -1,0 +1,24 @@
+{% extends 'inteb/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<form action="{% url 'tasks:addticket' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3 w-25">
+        <label for="exampleFormControlInput1" class="form-label">Тема</label>
+        <input id="exampleFormControlInput1" class="form-control" type="text" value="{{ ticket.topic }}" >
+    </div>
+
+    <div class="mb-3 w-25">
+        <label for="exampleFormControlTextarea4" class="form-label">Описание</label>
+        <textarea class="form-control" id="exampleFormControlTextarea4" rows="5"  type="datetime-local" value="{{ ticket.text }}" ></textarea>
+    </div>
+    {{ form  }}
+    <button type="submit" class="btn btn-success">Добавить</button>
+
+
+</form>
+{% endblock %}
