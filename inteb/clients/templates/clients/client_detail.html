@@ -3,40 +3,65 @@
 
 {% block content %}
 
+<div class="container">
+    <a href="{% url 'clients:client_staff_detail' client.pk %}" class='btn btn-primary'>Сорудники</a>
+    <a href="{% url 'clients:add_client_staff' client.pk %}" class='btn btn-primary'>Добавить сотрудника</a>
 
-<form action="{% url 'clients:client_detail' client.pk %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'clients:client_detail' client.pk %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
+      <div class="row">
+          <div class="col block1">
+              <div class="row">
+                  <table>{{ update_form.as_table }}</table>
+              </div>
+              <div class="row block_inside">
+                  <table>
+            <thead>
+                <tr>
+                    <th scope="col">Комментарий</th>
+                    <th scope="col">Автор</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for comm in client.comment.all %}
+                <tr>
+                    <td class="form-control">{{ comm }}</td>
+                    <td>({{ comm.author.first_name }} {{ comm.author.last_name }})</td>
+                </tr>              {% endfor %}
 
+            </tbody>
+            </table>
+                  <div class="block_inside">{{ comment }}</div>
 
+              </div>
+          </div>
+          <div class="col">
+          <div class="row"> <div class="col block1">
+            <div>{{ img }}
+            <button type="submit" class="btn btn-success">Сохранить</button>
+            <h1>Изображения</h1>
 
-<table>{{ update_form.as_table }}</table>
-
-    <a href="{% url 'clients:add_client_staff' %}" class="btn btn-success" role="button">Добавить сотрудника</a>
-
-    <div class="row ">
-        <h1>Изображения</h1>
-
-  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 ">
-    {% for image in client.client_images.all %}
-        {% if image.img %}
-            {% load thumbnail %}
-                {% thumbnail image.img "300" as im %}
-    <div class="col "><a href="{{ image.img.url }}">
-      <img src="{{ im.url }}" alt="">
-    </a></div>
+            {% for image in client.client_images.all %}
+                     {% if image.img %}
+                        {% load thumbnail %}
+                {% thumbnail image.img "150" as im %}
+                <a href="{{ image.img.url }}">
+                     <img src="{{ im.url }}" class="img-thumbnail" alt="">
+                </a>
                 {% endthumbnail %}
 
         {% endif %}
     {% endfor %}
+               </div>
 
-    />
-  </div>
-    </div>
-<p>
-{{ img }}
-    <button type="submit" class="btn btn-success">Сохранить</button>
-</p>
-</form>
+ </div>
+          </div>
+
+
+
+      </div>
+
+</div>
 
 
 {% endblock %}

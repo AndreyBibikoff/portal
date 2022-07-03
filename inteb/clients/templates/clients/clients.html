@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<div class="container">
 <a href="{% url 'clients:add_client' %}" class="btn btn-success" role="button">Добавить компанию</a>
 <table class="table">
   <thead>
@@ -19,6 +20,16 @@
 
    <tbody>
               {% for client in all_clients %}
+            {% if client.is_active == False %}
+    <tr>
+        <td class="text-decoration-line-through"><a href="{% url 'clients:client_detail' client.pk%}">{{ client.id }}</a></td>
+        <td class="text-decoration-line-through"><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_name }}</a></td>
+        <td class="text-decoration-line-through"><a href="{% url 'clients:client_detail' client.pk%}">{{ client.office_phone }}</a></td>
+        <td class="text-decoration-line-through"><a href="{% url 'clients:client_detail' client.pk%}">{{ client.office_email }}</a></td>
+        <td class="text-decoration-line-through"><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_address }}</a></td>
+
+    </tr>
+              {% else %}
     <tr>
         <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.id }}</a></td>
         <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_name }}</a></td>
@@ -26,8 +37,9 @@
         <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.office_email }}</a></td>
         <td><a href="{% url 'clients:client_detail' client.pk%}">{{ client.company_address }}</a></td>
 
-    </tr>
+    </tr>  {% endif %}
           {% endfor %}
   </tbody>
-
-{% endblock %}
+</table>
+</div>
+    {% endblock %}

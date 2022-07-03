@@ -16,14 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from clients.views import clients, add_client, client_detail, add_client_staff
+from clients.views import clients, add_client, client_detail, add_client_staff, client_staff_detail, client_staff_edit
 
 app_name = 'clients'
+
 
 urlpatterns = [
     path('', clients,  name='clients'),
     path('add/', add_client, name='add_client'),
     path('client_detail/<int:pk>/', client_detail, name='client_detail'),
-    path('add_client_staff/', add_client_staff, name='add_client_staff'),
+    path('add_client_staff/<int:pk>/', add_client_staff, name='add_client_staff'),
+    path('client_staff_detail/<int:pk>/', client_staff_detail, name='client_staff_detail'),
+    path('client_staff_edit/<int:pk>/', client_staff_edit, name='client_staff_edit'),
 
 ]

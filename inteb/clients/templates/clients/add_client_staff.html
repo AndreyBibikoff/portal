@@ -3,8 +3,9 @@
 
 {% block content %}
 
+{{ client.pk }}
 
-<form action="{% url 'clients:add_client_staff' %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'clients:add_client_staff' client.pk %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
     <table>{{ form.as_table }}</table>

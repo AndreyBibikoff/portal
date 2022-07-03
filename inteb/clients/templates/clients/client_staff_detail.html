@@ -1,0 +1,60 @@
+{% extends 'inteb/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{{ client }}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">lastname</th>
+      <th scope="col">firstname</th>
+      <th scope="col">middlename</th>
+      <th scope="col">bdate</th>
+      <th scope="col">position</th>
+      <th scope="col">work_phone</th>
+      <th scope="col">mobile_phone</th>
+      <th scope="col">email</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for client_staff in staff %}
+      {% if client.id == client_staff.company_id %}
+      {% if client_staff.is_active %}
+    <tr>
+      <th scope="row"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.id}}</a></th>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.lastname}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.firstname}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.middlename}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.bdate}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.position}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.work_phone}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.mobile_phone}}</a></td>
+      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.email}}</a></td>
+
+
+    </tr>
+     {% else %}
+  <tr>
+      <th class="text-decoration-line-through" scope="row"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.id}}</a></th>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.lastname}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.firstname}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.middlename}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.bdate}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.position}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.work_phone}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.mobile_phone}}</a></td>
+      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.email}}</a></td>
+
+
+    </tr> {% endif %}
+  {% endif %}
+{% endfor %}
+
+  </tbody>
+
+
+{% endblock %}
