@@ -1,0 +1,10 @@
+asgiref==3.5.0
+backports.zoneinfo==0.2.1
+Django==4.0.4
+django-crispy-forms==1.14.0
+django-environ==0.8.1
+extras==1.0.0
+Pillow==9.1.0
+sorl-thumbnail==12.8.0
+sqlparse==0.4.2
+tzdata==2022.1
