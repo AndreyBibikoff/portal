@@ -10,7 +10,7 @@
     <table>
     {{ edit_form.as_table }}
     </table>
-    Создан: {{client_staff.created}} Обновлен: {{ client_staff.updated }}
+    <p class="text-muted">Создан: {{client_staff.created|date:"d-m-Y H:i:s "}} / Обновлен: {{ client_staff.updated|date:"d-m-Y H:i:s" }}</p>
     <p><button type="submit" class="btn btn-success">Сохранить</button></p>
 
 </form>

@@ -20,7 +20,7 @@ class ClientsStaff(models.Model):
     lastname = models.CharField(verbose_name='Фамилия', max_length=32)
     firstname = models.CharField(verbose_name='Имя', max_length=32)
     middlename = models.CharField(verbose_name='Отчество', max_length=32, blank=True)
-    bdate = models.DateField('День рождения', blank=True, null=True)
+    bdate = models.DateField(verbose_name='День рождения', blank=True, null=True)
     position = models.CharField(verbose_name='Должность', max_length=32, blank=True)
     work_phone = models.PositiveIntegerField(verbose_name='рабочий телефон', blank=True)
     mobile_phone = models.PositiveIntegerField(verbose_name='мобильный телефон', blank=True)

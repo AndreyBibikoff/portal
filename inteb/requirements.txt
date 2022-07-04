@@ -8,3 +8,4 @@ Pillow==9.1.0
 sorl-thumbnail==12.8.0
 sqlparse==0.4.2
 tzdata==2022.1
+django-environ
