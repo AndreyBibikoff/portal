@@ -25,9 +25,10 @@ class ImgToForm(forms.ModelForm):
 
 
 class AddClientStaff(forms.ModelForm):
+    bdate = DateField(label='День рождения', input_formats=settings.DATE_FORMAT, widget=DateInput(attrs={'type': 'date'}))
     class Meta:
         model = ClientsStaff
-        fields = ['lastname', 'firstname', 'middlename', 'bdate', 'position', 'work_phone', 'mobile_phone',
+        fields = ['lastname', 'firstname', 'middlename', 'bdate', 'position', 'work_phone', 'extension_number', 'mobile_phone', 
                   'email']
 
     def __init__(self, *args, **kwargs):

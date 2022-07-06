@@ -9,12 +9,17 @@
 
         <form action="{% url 'clients:client_detail' client.pk %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
+
       <div class="row">
-          <div class="col block1">
+          <div class="col block_inside">
+              <p class="text-muted">Создан: {{client.created|date:"d-m-Y H:i:s "}} / Обновлен: {{ client.updated|date:"d-m-Y H:i:s" }}</p>
               <div class="row">
                   <table>{{ update_form.as_table }}</table>
-                  <p class="button"><button type="submit" class="btn btn-success">Сохранить</button></p>
+
+
               </div>
+                                <p class="button"><button type="submit" class="btn btn-success">Сохранить</button></p>
+
               <div class="row block_inside">
                   <table>
             <thead>
