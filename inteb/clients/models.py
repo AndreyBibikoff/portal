@@ -4,9 +4,9 @@ from staff.models import IntebUser
 
 class Clients(models.Model):
     company_name = models.CharField(verbose_name='Название', max_length=128, )
-    office_phone = models.BigIntegerField(verbose_name='Рабочий телефон')
-    office_email = models.EmailField(verbose_name='office_email')
-    company_address = models.CharField(verbose_name='Адрес', max_length=64)
+    office_phone = models.BigIntegerField(verbose_name='Рабочий телефон', blank=True, null=True)
+    office_email = models.EmailField(verbose_name='office_email', blank=True, null=True)
+    company_address = models.CharField(verbose_name='Адрес', max_length=64, blank=True, null=True)
     external_ip_v4 = models.CharField(verbose_name='внешний ip', max_length=16, default='0.0.0.0')
     is_active = models.BooleanField(verbose_name='активный', default=True)
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
