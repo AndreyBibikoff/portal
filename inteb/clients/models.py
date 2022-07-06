@@ -1,9 +1,10 @@
 from django.db import models
 from staff.models import IntebUser
 
+
 class Clients(models.Model):
     company_name = models.CharField(verbose_name='Название', max_length=128, )
-    office_phone = models.PositiveIntegerField(verbose_name='Рабочий телефон')
+    office_phone = models.BigIntegerField(verbose_name='Рабочий телефон')
     office_email = models.EmailField(verbose_name='office_email')
     company_address = models.CharField(verbose_name='Адрес', max_length=64)
     external_ip_v4 = models.CharField(verbose_name='внешний ip', max_length=16, default='0.0.0.0')
@@ -22,7 +23,8 @@ class ClientsStaff(models.Model):
     middlename = models.CharField(verbose_name='Отчество', max_length=32, blank=True)
     bdate = models.DateField(verbose_name='День рождения', blank=True, null=True)
     position = models.CharField(verbose_name='Должность', max_length=32, blank=True)
-    work_phone = models.PositiveIntegerField(verbose_name='рабочий телефон', blank=True)
+    work_phone = models.BigIntegerField(verbose_name='рабочий телефон', blank=True)
+    extension_number = models.PositiveIntegerField(verbose_name='добавочный номер', blank=True, null=True)
     mobile_phone = models.PositiveIntegerField(verbose_name='мобильный телефон', blank=True)
     email = models.EmailField(verbose_name='email', blank=True)
     comment = models.TextField(verbose_name='Комментарий', blank=True)
@@ -30,9 +32,11 @@ class ClientsStaff(models.Model):
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='создан', auto_now=True)
 
+
 def image_folder(self, filename):
     filename = self.company_img.company_name + '.' + filename.split('.')[1]
-    return "{0}/{1}".format(self.company_img.company_name, filename)
+    folder = self.company_img.company_name.replace(' ', '_').replace('"', '').replace("'", "")
+    return "{0}/{1}".format(folder, filename)
 
 
 class Images(models.Model):

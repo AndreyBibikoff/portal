@@ -9,14 +9,10 @@
   <thead>
     <tr>
       <th scope="col">id</th>
-      <th scope="col">lastname</th>
-      <th scope="col">firstname</th>
-      <th scope="col">middlename</th>
-      <th scope="col">bdate</th>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Имя</th>
+      <th scope="col">Отчество</th>
       <th scope="col">position</th>
-      <th scope="col">work_phone</th>
-      <th scope="col">mobile_phone</th>
-      <th scope="col">email</th>
 
     </tr>
   </thead>
@@ -29,11 +25,7 @@
       <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.lastname}}</a></td>
       <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.firstname}}</a></td>
       <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.middlename}}</a></td>
-      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.bdate}}</a></td>
       <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.position}}</a></td>
-      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.work_phone}}</a></td>
-      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.mobile_phone}}</a></td>
-      <td><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.email}}</a></td>
 
 
     </tr>
@@ -43,11 +35,7 @@
       <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.lastname}}</a></td>
       <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.firstname}}</a></td>
       <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.middlename}}</a></td>
-      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.bdate}}</a></td>
       <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.position}}</a></td>
-      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.work_phone}}</a></td>
-      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.mobile_phone}}</a></td>
-      <td class="text-decoration-line-through"><a href="{% url 'clients:client_staff_edit' client_staff.pk%}">{{ client_staff.email}}</a></td>
 
 
     </tr> {% endif %}

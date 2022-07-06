@@ -24,7 +24,7 @@ class IntebUserRegisterForm(UserCreationForm):
 
     class Meta:
         model = IntebUser
-        fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'middle_name', 'email', 'birthday',
+        fields = ['username', 'password1', 'password2','last_name', 'first_name', 'middle_name', 'email', 'birthday',
                   'avatar']
 
 

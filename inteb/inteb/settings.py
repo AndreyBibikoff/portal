@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['10.18.5.250', '10.18.5.250']
+ALLOWED_HOSTS = ['10.18.5.250', '127.0.0.1']
 
 
 # Application definition
@@ -89,20 +89,20 @@ WSGI_APPLICATION = 'inteb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('NAME'),
+#         'USER': env('USER'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,11 +141,11 @@ DATE_FORMAT = ('%d.%m.%Y', '%Y-%m-%d')
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'inteb', 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'inteb', 'static')
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'inteb', 'static'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'inteb', 'static'),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

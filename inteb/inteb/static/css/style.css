@@ -24,3 +24,9 @@
 .footer {
     margin-top: auto;
 }
+
+.button_inside {
+    padding-top: 30px;
+    padding-left: 0x;
+    width: 10px;
+}
